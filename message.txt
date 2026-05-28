@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submundismo • Manual do Submundo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(180deg, #0a0a0a, #1a0033);
+            color: #ff00ff;
+            font-family: 'Press Start 2P', system-ui;
+        }
+        .glitch { animation: glitch 1s infinite; }
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00ff; }
+            50% { text-shadow: -2px 0 #00ffff, 2px 0 #ff00ff; }
+            100% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00ff; }
+        }
+        .card { transition: all 0.3s; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 0 35px #ff00ff; }
+
+        /* CSS DO LIVRO SAGRADO (corrigido) */
+        #bookModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .book-page {
+            max-width: 820px;
+            width: 90%;
+            background: #ffffff;
+            border: 12px solid #ff00ff;
+            box-shadow: 0 0 70px #ff00ff;
+            padding: 50px 60px;
+            position: relative;
+            border-radius: 8px;
+            color: #1a001a;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .close-book {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 45px;
+            cursor: pointer;
+            color: #ff00ff;
+            transition: transform 0.2s;
+        }
+        .close-book:hover { transform: scale(1.2); }
+    </style>
+</head>
+<body class="min-h-screen text-pink-400">
+
+    <!-- NAV -->
+    <nav class="bg-black border-b-4 border-pink-600 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center text-2xl"></div>
+                <h1 class="text-3xl font-bold glitch">SUBMUNDISMO</h1>
+            </div>
+            <div class="flex gap-6 items-center">
+                <a href="#deuses" class="hover:text-white transition">DEUSES</a>
+                <a href="#messias" class="hover:text-white transition">MESSIAS</a>
+                <a href="#apostolos" class="hover:text-white transition">APÓSTOLOS</a>
+                <a href="#mandamentos" class="hover:text-white transition">MANDAMENTOS</a>
+                <a href="#manual" class="hover:text-white transition">MANUAL SAGRADO</a>
+                
+                <button onclick="toggleDemonMode()" id="mirrorBtn"
+                    class="ml-4 bg-purple-900 hover:bg-purple-700 border-4 border-purple-500 text-white px-6 py-3 rounded-xl flex items-center gap-3 text-lg transition">
+                    <span id="mirrorText">MODO DEMÔNIO</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== CONTEÚDO NORMAL ==================== -->
+    <div id="normalContent">
+
+        <!-- DEUSES -->
+        <section id="deuses" class="py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-6xl font-bold text-center mb-16 border-b-4 border-pink-600 inline-block pb-2"> OS DEUSES</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="card bg-zinc-900 border-4 border-pink-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4">Sonic Feio</h3><p class="text-pink-300">Deus do Caos e da Velocidade Descontrolada.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse2.mm.bing.net/th/id/OIP.Rv_sdaQ7CKyDvsqYDeiSzwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Sonic Feio" class="w-full h-80 object-contain rounded-lg border-4 border-pink-400 cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-pink-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4">Baitaca</h3><p class="text-pink-300">Deus da Música Gaúcha e da Tradição do Pampa.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP.9tvp7TXJrR68w06t0RZwsQHaJQ?w=131&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Baitaca" class="w-full h-80 object-contain rounded-lg border-4 border-pink-400 cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-pink-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4">Charizard</h3><p class="text-pink-300">Deus do Fogo e da Evolução.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse2.mm.bing.net/th/id/OIP.JZ7exAgpGUAXZaxzMW5cFwAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Charizard" class="w-full h-80 object-contain rounded-lg border-4 border-pink-400 cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-pink-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4">Et Bilu</h3><p class="text-pink-300">Deus do Mistério.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse4.mm.bing.net/th/id/OIP.ffwh6FpRrSQub_g20CAIhgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Et Bilu" class="w-full h-80 object-contain rounded-lg border-4 border-pink-400 cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-pink-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4">Kratos</h3><p class="text-pink-300">Deus da Fúria e da Vingança.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://th.bing.com/th/id/R.2f89b7154137537c51e6ff68ca97fc62?rik=HKnseyIfJn6Scg&pid=ImgRaw&r=0" alt="Kratos" class="w-full h-80 object-contain rounded-lg border-4 border-pink-400 cursor-pointer"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MESSIAS -->
+        <section id="messias" class="py-20 bg-black/80">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-6xl font-bold text-center mb-16 border-b-4 border-yellow-400 inline-block pb-2 text-yellow-400"> OS MESSIAS</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="card bg-gradient-to-br from-yellow-900 to-amber-950 border-4 border-yellow-400 p-8 rounded-2xl text-center">
+                        <img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP.5689wNGu__vw7JKRroFZ-wHaEK?w=326&h=183&c=7&r=0&o=7&pid=1.7&rm=3" alt="Iberé" class="w-full h-80 object-cover mx-auto mb-6 rounded-xl border-4 border-yellow-300 cursor-pointer">
+                        <h3 class="text-5xl mb-3">Iberé</h3>
+                        <p class="text-yellow-300">"É só mais um print".</p>
+                    </div>
+                    <div class="card bg-gradient-to-br from-yellow-900 to-amber-950 border-4 border-yellow-400 p-8 rounded-2xl text-center">
+                        <img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP.F8PjHNKpvVucmGHc0bNXjgHaEK?w=298&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Douglassola" class="w-full h-80 object-cover mx-auto mb-6 rounded-xl border-4 border-yellow-300 cursor-pointer">
+                        <h3 class="text-5xl mb-3">Douglassola</h3>
+                        <p class="text-yellow-300">Messias da Lógica Absurda e dos Argumentos Infalíveis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APÓSTOLOS -->
+        <section id="apostolos" class="py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-6xl font-bold text-center mb-16 border-b-4 border-cyan-400 inline-block pb-2 text-cyan-400"> APÓSTOLOS</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Apóstolos antigos -->
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Hatsune Miku</h3><p class="text-cyan-300">Apóstola da Cultura Otaku.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse3.mm.bing.net/th/id/OIP.yP5d18j8Yrk2uhorjXWfPQHaKe?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hatsune Miku" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">CR7</h3><p class="text-cyan-300">Apóstolo da Determinação.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://i.metroimg.com/jqwrvcb9dFHfpCP18_6hyo1nV1NJyyMeeAa8jEhass0/w:900/q:85/f:webp/plain/https://images.metroimg.com/2025/11/27181941/Cristiano-Ronaldo-34.jpg" alt="CR7" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Roland</h3><p class="text-cyan-300">Apóstolo da Fúria Contida.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://static.wikia.nocookie.net/villains/images/c/c9/Roland_(Library_of_Ruina).jpg/revision/latest?cb=20230320120245" alt="Roland" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Dante</h3><p class="text-cyan-300">Apóstolo do Tempo e das Chamas.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://i.pinimg.com/736x/58/07/ce/5807ce91ab755a89cac16b528a7292f5.jpg" alt="Dante" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Punishing Bird</h3><p class="text-cyan-300">Apóstolo da Punição Justa.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP.OnS39KMFmoJcMnzFjqJmlQAAAA?w=167&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Punishing Bird" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Steve</h3><p class="text-cyan-300">Apóstolo da Criação.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse3.mm.bing.net/th/id/OIP.poSZUnZqrIdiIoBtuCz_rgAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Steve" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Mario & Luigi</h3><p class="text-cyan-300">Apóstolos da Irmandade.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP.vPaGYmPHbmEEEoKfQ5gFrQHaFj?w=233&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Mario & Luigi" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Thukuna</h3><p class="text-cyan-300">Apóstolo do Vício e da Loucura.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse1.mm.bing.net/th/id/OIP.6dP8RMQYRLcMaDBzLZxJRgHaEi?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Thukuna" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Satoru Peixe</h3><p class="text-cyan-300">Apóstolo da Natação Existencial.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://media1.tenor.com/m/O5a1zkUB_C4AAAAC/nah-id-swim.gif" alt="Satoru Peixe" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Marshall</h3><p class="text-cyan-300">Apóstolo da Patrulha.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse1.mm.bing.net/th/id/OIP.GGa-TuEU-d9GdwmoxIS6mAHaG3?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Marshall" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Pikachu</h3><p class="text-cyan-300">Apóstolo da Eletricidade.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse4.mm.bing.net/th/id/OIP.6wmgmDefc369ifeManP17wHaI4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Pikachu" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">John Reprieve</h3><p class="text-cyan-300">Apóstolo da Sobrevivência.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse1.mm.bing.net/th/id/OIP.5jKRomAK5GinN2-YHnUTzgHaD4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="John Reprieve" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Poco</h3><p class="text-cyan-300">Apóstolo da Música e Alegria.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse4.mm.bing.net/th/id/OIP.U2mLOZpGcHkMXBVB-eHDawAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Poco" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+
+                    <!-- Wilson -->
+                    <div class="card bg-zinc-900 border-4 border-cyan-500 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-3xl mb-4">Wilson</h3><p class="text-cyan-300">Apóstolo da Sabedoria e do Sofrimento Eterno.</p></div>
+                        <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse4.mm.bing.net/th/id/OIP.3nSigHRfOklXseWcTLKCRgAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Wilson" class="w-full h-64 object-cover rounded-lg cursor-pointer"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MANDAMENTOS -->
+        <section id="mandamentos" class="py-20 bg-black/80">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-6xl font-bold text-center mb-16 text-yellow-400"> OS 7 MANDAMENTOS</h2>
+                <div class="space-y-6 text-lg">
+                    <div class="flex gap-6 bg-zinc-900 p-6 rounded-xl border border-yellow-400"><span class="text-4xl font-bold text-yellow-400">1.</span><p>Honrarás o Chimarrão e a Baitaca acima de todas as coisas.</p></div>
+                    <div class="flex gap-6 bg-zinc-900 p-6 rounded-xl border border-yellow-400"><span class="text-4xl font-bold text-yellow-400">2.</span><p>Não julgarás o feio.</p></div>
+                    <div class="flex gap-6 bg-zinc-900 p-6 rounded-xl border border-yellow-400"><span class="text-4xl font-bold text-yellow-400">3.</span><p>Farás prints de tudo.</p></div>
+                    <div class="flex gap-6 bg-zinc-900 p-6 rounded-xl border border-yellow-400"><span class="text-4xl font-bold text-yellow-400">4.</span><p>Respeitarás o "Siuuu".</p></div>
+                    <div class="flex gap-6 bg-zinc-900 p-6 rounded-xl border border-yellow-400"><span class="text-4xl font-bold text-yellow-400">5.</span><p>Não usarás tutorial sem like.</p></div>
+                    <div class="flex gap-6 bg-zinc-900 p-6 rounded-xl border border-yellow-400"><span class="text-4xl font-bold text-yellow-400">6.</span><p>Aceitarás o caos.</p></div>
+                    <div class="flex gap-6 bg-zinc-900 p-6 rounded-xl border border-yellow-400"><span class="text-4xl font-bold text-yellow-400">7.</span><p>Se cair, levanta e bebe uma cerveja.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MANUAL -->
+        <section id="manual" class="py-20 bg-gradient-to-b from-black to-purple-950">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-6xl font-bold mb-8"> MANUAL DO SUBMUNDO</h2>
+                <p class="text-xl text-pink-300 mb-12">O Livro Sagrado do Caos</p>
+                <div onclick="openBook()" class="cursor-pointer inline-block hover:scale-105 transition-transform">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.8V0Xyr9iAh3GUorcipZDqAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Capa do Manual" class="mx-auto w-96 border-8 border-pink-600 shadow-2xl">
+                    <p class="text-pink-400 mt-6 text-lg font-bold">CLIQUE NA CAPA PARA ABRIR O LIVRO SAGRADO</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ==================== MODO DEMÔNIO ==================== -->
+    <div id="demonContent" class="hidden py-20 bg-red-950/90">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-6xl font-bold text-center mb-16 border-b-4 border-red-600 inline-block pb-2 text-red-400 glitch"> OS DEMÔNIOS DO SUBMUNDO</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Demônios antigos -->
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Cubo do Geometry Dash</h3><p class="text-red-300">Demônio da Frustração Infinita.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8pqNLlh7KBpi-83OI9_BZzu25-O-TiAyQuw&s" alt="Cubo Geometry Dash" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Neymar Gordo</h3><p class="text-red-300">Demônio da Lesão Eterna.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://i.pinimg.com/736x/be/16/fe/be16fe7e5e6be4dd3138591b80d86d5a.jpg" alt="Neymar Gordo" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Lula</h3><p class="text-red-300">Demônio da Mamata e do Petrolão.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtsQ2wAZ8qIrzLBu-ynka23l4pYPUZTbgtkw&s" alt="Lula" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Agrifest 2026</h3><p class="text-red-300">Demônio da Ressaca Coletiva.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIs2f7EiBqasmMJo0WQykAPiczl2Jx-s6PQg&s" alt="Agrifest 2026" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Bolsonaro</h3><p class="text-red-300">Demônio da Polarização.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3_H50OHW9RskXXmWDy43NSA51FQDUXyiavA&s" alt="Bolsonaro" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">The Choice</h3><p class="text-red-300">Demônio da Decisão Final.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUu4epq3rSXseY-ip335RPY88GKEBCMWegJg&s" alt="The Choice" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+
+                <!-- Novos Demônios -->
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Cleide</h3><p class="text-red-300">Demônio da Bagunça e do Caos Doméstico.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP.GgMfhHQ_x2fLMbnsj1l0JAHaEK?w=316&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Cleide" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Kleberiano</h3><p class="text-red-300">Demônio da Teimosia e das Teorias Infundadas.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP.mirFMbWcDc-wlBokI1ldxwHaHa?w=167&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="Kleberiano" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Cellbit</h3><p class="text-red-300">Demônio da Ira Contra os Pobres.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP.Qk843P7IwUqZ7e8T5i2pngHaHa?w=203&h=203&c=7&r=0&o=7&pid=1.7&rm=3" alt="Cellbit" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Tigrinho</h3><p class="text-red-300">Demônio do Jogo. Não solta a carta de jeito nenhum.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse1.mm.bing.net/th/id/OIP.AyFHuw_u1s57839OAMQPfAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tigrinho" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">CLT</h3><p class="text-red-300">Demônio da Escravidão Moderna e das Folgas Negadas.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://itrabalhistas.com.br/wp-content/uploads/2023/11/Design-sem-nome-1-1.png" alt="CLT" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Herobrine (Heleno Braian)</h3><p class="text-red-300">Demônio do Medo e das Aparições Sinistras.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://th.bing.com/th/id/OIP._hLwN4a9845fuuwWPI4LzAHaEs?w=287&h=182&c=7&r=0&o=7&pid=1.7&rm=3" alt="Herobrine" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Bob</h3><p class="text-red-300">Pior vilão de todos os tempos. Colônia Contra-Ataca.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse2.mm.bing.net/th/id/OIP.rV_eWxpm0QpBh2i5uO7uCQHaGr?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Bob" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+                <div class="card bg-zinc-900 border-4 border-red-600 p-6 rounded-xl flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/2 flex flex-col justify-center"><h3 class="text-4xl mb-4 text-red-400">Terra Plana</h3><p class="text-red-300">Todos sabemos que a Terra é um dinossauro.</p></div>
+                    <div class="md:w-1/2"><img onclick="openModal(this)" src="https://tse2.mm.bing.net/th/id/OIP.7EW01r5Us1_-bcP0HSoXRwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Terra Plana" class="w-full h-80 object-contain rounded-lg border-4 border-red-500 cursor-pointer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DO LIVRO (corrigido) -->
+    <div id="bookModal">
+        <div class="book-page">
+            <span onclick="closeBook()" class="close-book">×</span>
+            <h2 class="text-4xl text-center mb-10 border-b-4 border-pink-600 pb-4">MANUAL DO SUBMUNDO</h2>
+            <div id="pageContent" class="min-h-[420px] text-left leading-relaxed text-lg"></div>
+            <div class="flex justify-between items-center mt-10">
+                <button onclick="prevPage()" class="bg-pink-700 hover:bg-pink-600 text-white px-8 py-4 text-lg rounded">← Anterior</button>
+                <span id="pageIndicator" class="text-pink-600 text-xl font-bold">1 / 8</span>
+                <button onclick="nextPage()" class="bg-pink-700 hover:bg-pink-600 text-white px-8 py-4 text-lg rounded">Próxima →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isDemonMode = false;
+
+        function toggleDemonMode() {
+            isDemonMode = !isDemonMode;
+            const normal = document.getElementById('normalContent');
+            const demon = document.getElementById('demonContent');
+            const btnText = document.getElementById('mirrorText');
+            const btn = document.getElementById('mirrorBtn');
+
+            if (isDemonMode) {
+                normal.classList.add('hidden');
+                demon.classList.remove('hidden');
+                btnText.textContent = "VOLTAR AO NORMAL";
+                btn.classList.add('bg-red-900', 'border-red-500');
+            } else {
+                normal.classList.remove('hidden');
+                demon.classList.add('hidden');
+                btnText.textContent = "MODO DEMÔNIO";
+                btn.classList.remove('bg-red-900', 'border-red-500');
+            }
+        }
+
+        function openModal(img) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:2000;display:flex;align-items:center;justify-content:center;`;
+            modal.innerHTML = `
+                <div class="relative">
+                    <img src="${img.src}" style="max-width:90%; max-height:90vh; border:4px solid #ff00ff;" alt="Imagem ampliada">
+                    <span onclick="this.closest('div').parentElement.remove()" style="position:absolute;top:-20px;right:-20px;font-size:50px;color:#ff00ff;cursor:pointer;">×</span>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // ==================== LIVRO SAGRADO (corrigido) ====================
+        let currentPage = 0;
+        const tutorials = [
+            { title: "Tutorial 1: Invocar Baitaca", content: "Coloque um chimarrão bem quente. Toque uma música do Baitaca." },
+            { title: "Tutorial 2: Método CR7", content: "Acorde 4h da manhã. Faça 700 flexões gritando SIUUU." },
+            { title: "Tutorial 3: Ser Sonic Feio", content: "Seja feio com orgulho. Corra sem destino." },
+            { title: "Tutorial 4: Nah I'd Swim", content: "Nade contra a correnteza da vida." },
+            { title: "Tutorial 5: Steve Mode", content: "Pegue madeira. Faça picareta. Minere até o fundo." },
+            { title: "Tutorial 6: Punição Justa", content: "Aplique a punição sem dó." },
+            { title: "Tutorial 7: Fúria de Kratos", content: "Libere sua raiva nos obstáculos." },
+            { title: "Tutorial 8: O Print Final", content: "Tudo é só mais um print. Amém." }
+        ];
+
+        function openBook() {
+            currentPage = 0;
+            document.getElementById('bookModal').style.display = 'flex';
+            showPage();
+        }
+
+        function closeBook() {
+            document.getElementById('bookModal').style.display = 'none';
+        }
+
+        function showPage() {
+            const page = tutorials[currentPage];
+            document.getElementById('pageContent').innerHTML = `
+                <h3 class="text-3xl mb-6 font-bold">${page.title}</h3>
+                <p class="text-gray-800 leading-relaxed">${page.content}</p>
+            `;
+            document.getElementById('pageIndicator').textContent = `${currentPage + 1} / ${tutorials.length}`;
+        }
+
+        function nextPage() {
+            if (currentPage < tutorials.length - 1) {
+                currentPage++;
+                showPage();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                showPage();
+            }
+        }
+    </script>
+
+    <footer class="bg-black py-12 text-center border-t-4 border-pink-600">
+        <p>© 2026 Igreja do Submundismo • Caos Gaúcho Supremo</p>
+    </footer>
+</body>
+</html>
